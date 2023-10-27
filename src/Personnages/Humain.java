@@ -23,7 +23,22 @@ public class Humain {
 	public void payer(Humain autre, int montant) {
 		if (montant >=0 && this.argent>=montant) {
 			this.argent-=montant;
+			autre.argent+=montant;
+			System.out.println(nom + "a payé" + montant + "à"+ autre.nom +".");
+		}else { 
+			System.out.println(nom + " ne peut pas payer cette somme ");
 		}
 		
 	}
+	
+	public void gagnerArgent (int montant) {
+		if (montant >0 ) {this.argent+=montant;
+		System.out.println(nom + " a gagné " + montant + "unités");
+		}
+	}
+	
+	public void perdreArgent(int montant) {
+		
+	}
 }
+
