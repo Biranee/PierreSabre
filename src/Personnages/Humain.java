@@ -2,9 +2,9 @@ package Personnages;
 
 public class Humain {
 
-	public String nom;
-	public String boissonfavo;
-	public int argent ; 
+	private String nom;
+	private String boissonfavo;
+	private int argent ; 
 	
 
 	public Humain(String nom, String boissonfavo, int argent) {
@@ -38,7 +38,50 @@ public class Humain {
 	}
 	
 	public void perdreArgent(int montant) {
+		if (montant>0 && this.argent>=montant) {
+			this.argent-= montant; 
+			System.out.println(nom + "a perdu" + montant +" unités");
+		} else {
+			System.out.println(nom +" n'a pas assez d'argent pour perdre ça " );
+		}
+	} 
+	
+	public void direBonjour() {
+		System.out.println(nom + "dit : Bonjour!");
 		
 	}
+	public void boire() {
+		System.out.println(nom + "Boit son " + boissonfavo + " favorite");
+	}
+	
+	public void acheter(Humain vendeur, int montant) {
+		if (this.argent>= montant) {
+			this.argent= montant;
+			vendeur.argent+= montant;
+			System.out.println(nom + " a acheté quelque chose pour " + montant + "d'unités à" + vendeur.nom );
+		} else {
+			System.out.println( nom + " n'a pas assez d'argent pour acheter ce produit ");
+		}
+	}
+	
+	public void parler(String message) {
+		System.out.println(nom +" dit :"+ message);
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public String getBoissonfavo() {
+		return boissonfavo;
+	}
+
+	public int getArgent() {
+		return argent;
+	}
+
+	
+	
+	
 }
 
